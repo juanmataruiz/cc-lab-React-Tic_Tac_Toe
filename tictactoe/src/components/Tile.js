@@ -3,8 +3,9 @@ import React from 'react';
 class Tile extends React.Component {
 
   render() {
+
     return (
-      <p>I am a tile</p>
+      <div className='tile'>{this.props.tileState}</div>
     )
   }
 }
