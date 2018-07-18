@@ -4,7 +4,7 @@ class GameInfo extends React.Component {
 
   render() {
     return (
-      <p>Game info</p>
+      <p>Current Player: {this.props.currentPlayer}</p>
     )
   }
 }

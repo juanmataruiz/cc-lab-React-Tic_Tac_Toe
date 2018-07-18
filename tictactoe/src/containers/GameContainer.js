@@ -21,7 +21,7 @@ class GameContainer extends React.Component {
     return (
       <div className='game-container'>
         <Board handleClick={this.handleClick} boardState={this.state.boardState} />
-        <GameInfo />
+        <GameInfo currentPlayer={this.state.currentPlayer} />
         <Reset handlReset={this.handlReset} />
       </div>
     )
