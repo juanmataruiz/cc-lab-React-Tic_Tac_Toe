@@ -4,7 +4,7 @@ class Reset extends React.Component {
 
   render() {
     return (
-      <p>I am button</p>
+      <button onClick={this.props.handlReset}>Reset</button>
     )
   }
 }
