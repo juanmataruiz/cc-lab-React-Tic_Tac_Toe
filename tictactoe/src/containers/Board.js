@@ -7,17 +7,17 @@ class Board extends React.Component {
     super(props)
     this.state = {
       boardState: [
-        ["", "X", ""],
-        ["P", "", ""],
+        ["O", "", ""],
+        ["", "O", ""],
         ["", "", "O"]
       ]
     }
   }
 
   render() {
-    let key = 0;
+    let key = 1;
     const tileElements = this.state.boardState.map((row) =>
-      <tr>
+      <tr key={key + 10}>
         {row.map((tileState) => {
           key++
           return (<Tile key={key} tileState={tileState} />)
