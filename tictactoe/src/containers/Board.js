@@ -7,10 +7,11 @@ class Board extends React.Component {
     super(props)
     this.state = {
       boardState: [
-        ["O", "", ""],
-        ["", "O", ""],
-        ["", "", "O"]
-      ]
+        ["", "", ""],
+        ["", "", ""],
+        ["", "", ""]
+      ],
+      currentPlayer: 'X'
     }
     this.handleClick = this.handleClick.bind(this)
   }
@@ -40,12 +41,12 @@ class Board extends React.Component {
     const index = parseInt(event.target.getAttribute('index'), 10)
     const row = Math.floor(index / 3)
     const col = index % 3
-    console.log(row);
-    console.log(col);
-    console.log(event.target.getAttribute('index'));
 
-    newGameState[row][col] = 'X'
-    this.setState({ boardState: newGameState })
+    newGameState[row][col] = this.state.currentPlayer
+    this.setState({
+      boardState: newGameState,
+      currentPlayer: this.state.currentPlayer === 'X' ? 'O' : 'X'
+    })
   }
 }
 export default Board;
