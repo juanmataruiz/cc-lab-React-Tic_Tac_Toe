@@ -12,18 +12,18 @@ class Board extends React.Component {
         ["", "", "O"]
       ]
     }
+    this.handleClick = this.handleClick.bind(this)
   }
 
   render() {
-    let key = 1;
+    let key = -1;
     const tileElements = this.state.boardState.map((row) =>
-      <tr key={key + 10}>
+      <tr key={key + 9}>
         {row.map((tileState) => {
           key++
-          return (<Tile key={key} tileState={tileState} />)
+          return (<Tile index={key} key={key} tileState={tileState} handleClick={this.handleClick} />)
         })}
       </tr>
-
     )
 
     return (
@@ -33,6 +33,19 @@ class Board extends React.Component {
         </tbody>
       </table>
     )
+  }
+
+  handleClick(event) {
+    const newGameState = this.state.boardState
+    const index = parseInt(event.target.getAttribute('index'), 10)
+    const row = Math.floor(index / 3)
+    const col = index % 3
+    console.log(row);
+    console.log(col);
+    console.log(event.target.getAttribute('index'));
+
+    newGameState[row][col] = 'X'
+    this.setState({ boardState: newGameState })
   }
 }
 export default Board;

@@ -5,7 +5,7 @@ class Tile extends React.Component {
   render() {
 
     return (
-      <td className='tile'>{this.props.tileState}</td>
+      <td index={this.props.index} className='tile' onClick={this.props.handleClick}>{this.props.tileState}</td>
     )
   }
 }
